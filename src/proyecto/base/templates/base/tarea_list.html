@@ -8,6 +8,10 @@
         <th>
 
         </th>
+
+         <th>
+
+        </th>
     </tr>
     <!--    Loop for en django  -->
     {% for tarea in tareas %}
@@ -16,6 +20,10 @@
             {{tarea.titulo}}
         <td>
             <a href="{% url 'tarea' tarea.id %}">ver</a>
+        </td>
+                {{tarea.titulo}}
+        <td>
+            <a href="{% url 'editar-tarea' tarea.id %}">editar</a>
         </td>
 
     </tr>

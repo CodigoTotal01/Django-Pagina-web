@@ -1,5 +1,10 @@
 <h1>Tarea form</h1>
 
-<form>
+<a href="{% url 'tareas'%}"> volver</a>
 
+<form method="POST" action="">
+<!--    Los token crsf previenen la falsicficacion de solicictud en sitios web -->
+    {% csrf_token%}
+    {{form.as_p}}
+    <input type="submit" value="Enviar">
 </form>

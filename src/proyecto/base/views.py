@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy  # enviar a un lugar especifico al suceder un evento
 
 from .models import Tarea
@@ -26,6 +26,12 @@ class DetalleTarea(DetailView):
 # Crear neuvos elementos en la lista
 
 class CrearTarea(CreateView):
+    model = Tarea
+    fields = '__all__'
+    success_url = reverse_lazy('tareas')
+
+
+class EditarTarea(UpdateView):
     model = Tarea
     fields = '__all__'
     success_url = reverse_lazy('tareas')
