@@ -56,7 +56,8 @@ ROOT_URLCONF = 'proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        # Le decimos donde buscar las plantillas
+        'DIRS': ['E:\\Personal\\Programacion\\Proyectos\\mi_web\\src\\proyecto\\base\\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
