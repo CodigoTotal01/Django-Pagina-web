@@ -1,0 +1,1 @@
+# configurar el patron de la url
