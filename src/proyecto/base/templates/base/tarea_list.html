@@ -1,4 +1,12 @@
-<h1>Lsita de Pendientes</h1>
+{% if request.user.is_authenticated%}
+    <p>{{request.user}}</p>
+    <a href="{% url 'logout' %}">Salir</a>
+{% else %}
+    <a href="{% url 'login' %}">Ingresar</a>
+{%endif%}
+<hr>
+
+<h1>Lista de Pendientes {{tarea}}</h1>
 <a href="{% url 'crear-tarea' %}">Crear nueva tarea</a>
 <table>
     <tr>
@@ -26,7 +34,7 @@
             <a href="{% url 'editar-tarea' tarea.id %}">editar</a>
         </td>
         <td>
-        <a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a>
+            <a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a>
 
         </td>
     </tr>
