@@ -33,7 +33,7 @@ class PaginaRegistro(FormView):
     redirect_field_name = True
     success_url = reverse_lazy('tareas')
 
-#! Para el logueo del usuario
+    # ! Para el logueo del usuario
     def form_valid(self, form):
         usuario = form.save()
         if usuario is not None:
@@ -44,6 +44,8 @@ class PaginaRegistro(FormView):
         if self.request.user.is_authenticated:
             return redirect('tareas')
         return super(PaginaRegistro, self).get(*args, **kwargs)
+
+
 # La lista tendra una lista de objetos
 class ListaPendientes(LoginRequiredMixin, ListView):
     model = Tarea
@@ -57,7 +59,10 @@ class ListaPendientes(LoginRequiredMixin, ListView):
         contex = super().get_context_data(**kwargs)
         contex['tareas'] = contex['tareas'].filter(usuario=self.request.user)
         contex['count'] = contex['tareas'].filter(completo=False).count()
-
+        # que solo salga las coas que busque el usuario, caputa la peticion
+        valor_buscado = self.request.GET.get('area-buscar') or ''
+        if valor_buscado:
+            contex['tareas'] = contex['tareas'].filter(titulo__icontains=valor_buscado)
         return contex
 
 
