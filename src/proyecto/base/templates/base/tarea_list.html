@@ -9,7 +9,7 @@
 
         </th>
 
-         <th>
+        <th>
 
         </th>
     </tr>
@@ -21,11 +21,14 @@
         <td>
             <a href="{% url 'tarea' tarea.id %}">ver</a>
         </td>
-                {{tarea.titulo}}
+        {{tarea.titulo}}
         <td>
             <a href="{% url 'editar-tarea' tarea.id %}">editar</a>
         </td>
+        <td>
+        <a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a>
 
+        </td>
     </tr>
 
     {% empty %}
