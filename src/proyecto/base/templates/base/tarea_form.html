@@ -1,10 +1,21 @@
+{% extends 'base/principal.html' %}
+{% block content %}
+
+<div class="barra-superior">
+    <a href="{% url 'tareas'%}"> <- volver</a>
+</div>
+
 <h1>Tarea form</h1>
 
-<a href="{% url 'tareas'%}"> volver</a>
+<div class="cuerpo-tarjeta">
 
-<form method="POST" action="">
-<!--    Los token crsf previenen la falsicficacion de solicictud en sitios web -->
-    {% csrf_token%}
-    {{form.as_p}}
-    <input type="submit" value="Enviar">
-</form>
+    <form method="POST" action="">
+        <!--    Los token crsf previenen la falsicficacion de solicictud en sitios web -->
+        {% csrf_token%}
+        {{form.as_p}}
+        <input  class="button" type="submit" value="Enviar">
+    </form>
+
+</div>
+
+{% endblock content %}
